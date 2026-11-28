@@ -3,18 +3,18 @@ import unittest
 from src.hash_table import HashTable
 
 
-class HashTableTests(unittest.TestCase):
-    def test_empty_bucket_returns_default_without_comparisons(self):
-        table = HashTable()
+class HashTableContract:
+    def test_empty_lookup_returns_default(self):
+        table = self.table_type()
         self.assertEqual(len(table), 0)
         self.assertEqual(table.load_factor, 0)
-        self.assertEqual(table.find("a"), (False, None, 0))
+        self.assertEqual(table.find("a"), (False, None, self.empty_lookup_cost))
         self.assertIsNone(table.get("a"))
         self.assertEqual(table.get("a", "missing"), "missing")
         self.assertNotIn("a", table)
 
-    def test_colliding_keys_are_found_in_insertion_order(self):
-        table = HashTable()
+    def test_colliding_keys_and_missing_key(self):
+        table = self.table_type()
         # With eight buckets, a, i and q all hash to bucket 1.
         table.put("a", "first")
         table.put("i", "second")
@@ -23,21 +23,21 @@ class HashTableTests(unittest.TestCase):
         self.assertIn("a", table)
         self.assertEqual(table.find("a"), (True, "first", 1))
         self.assertEqual(table.find("i"), (True, "second", 2))
-        self.assertEqual(table.find("q"), (False, None, 2))
+        self.assertEqual(table.find("q"), (False, None, 2 + self.empty_lookup_cost))
 
     def test_horner_hash_depends_on_character_order(self):
-        table = HashTable(capacity=11, max_load=None)
+        table = self.table_type(capacity=11, max_load=None)
         # Horner puts ab and f in bucket 3, and ba and c in bucket 0.
         table.put("ab", "first")
         table.put("ba", "second")
 
-        self.assertEqual(table.find("f"), (False, None, 1))
-        self.assertEqual(table.find("c"), (False, None, 1))
+        self.assertEqual(table.find("f"), (False, None, 1 + self.empty_lookup_cost))
+        self.assertEqual(table.find("c"), (False, None, 1 + self.empty_lookup_cost))
         self.assertEqual(table.find("ab"), (True, "first", 1))
         self.assertEqual(table.find("ba"), (True, "second", 1))
 
     def test_update_and_stored_none_are_distinct_from_a_missing_key(self):
-        table = HashTable()
+        table = self.table_type()
         table.put("a", "original")
         table.put("i", "neighbor")
         table.put("a", None)
@@ -51,7 +51,7 @@ class HashTableTests(unittest.TestCase):
         self.assertEqual(table.get("q", "missing"), "missing")
 
     def test_growth_occurs_only_above_threshold_and_rehashes_entries(self):
-        table = HashTable()
+        table = self.table_type()
         keys = ("a", "i", "b", "c", "d", "e")
         for key in keys:
             table.put(key, key.upper())
@@ -71,6 +71,11 @@ class HashTableTests(unittest.TestCase):
             with self.subTest(key=key):
                 expected_value = "updated" if key == "b" else key.upper()
                 self.assertEqual(table.get(key), expected_value)
+
+
+class HashTableTests(HashTableContract, unittest.TestCase):
+    table_type = HashTable
+    empty_lookup_cost = 0
 
     def test_fixed_capacity_allows_load_above_one(self):
         table = HashTable(capacity=2, max_load=None)

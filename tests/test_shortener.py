@@ -3,10 +3,7 @@ import unittest
 from src.shortener import Shortener
 
 
-class ShortenerTests(unittest.TestCase):
-    def setUp(self):
-        self.shortener = Shortener()
-
+class ShortenerContract:
     def test_codes_start_at_zero_and_expand_to_the_original_url(self):
         first = "http://example.com:8080/path"
         second = "https://example.org/%ED%95%9C?q=a%20b&n=1#section"
@@ -82,3 +79,8 @@ class ShortenerTests(unittest.TestCase):
         self.assertEqual(self.shortener.expand("0"), prefix + "0")
         self.assertEqual(self.shortener.expand("Z"), prefix + "61")
         self.assertEqual(self.shortener.expand("10"), prefix + "62")
+
+
+class ShortenerTests(ShortenerContract, unittest.TestCase):
+    def setUp(self):
+        self.shortener = Shortener()
