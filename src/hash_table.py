@@ -9,14 +9,19 @@ from typing import Generic, TypeVar
 Value = TypeVar("Value")
 
 
-def horner_hash(key: str, capacity: int) -> int:
+def horner_hash(
+    key: str, capacity: int, *, steps: list[tuple[str, int, int]] | None = None
+) -> int:
     """Return the starting bucket for a string key."""
     if not isinstance(key, str):
         raise TypeError("hash table keys must be strings")
 
     index = 0
     for char in key:
-        index = (31 * index + ord(char)) % capacity
+        next_index = (31 * index + ord(char)) % capacity
+        if steps is not None:
+            steps.append((char, index, next_index))
+        index = next_index
     return index
 
 
@@ -88,6 +93,18 @@ class HashTable(Generic[Value]):
                 return True, node.value, comparisons
             node = node.next
         return False, None, comparisons
+
+    def bucket_items(self) -> list[list[tuple[str, Value]]]:
+        """Copy each bucket's entries in chain order for inspection."""
+        buckets = []
+        for head in self._buckets:
+            items = []
+            node = head
+            while node is not None:
+                items.append((node.key, node.value))
+                node = node.next
+            buckets.append(items)
+        return buckets
 
     def _grow(self) -> None:
         capacity = 2 * len(self._buckets)
