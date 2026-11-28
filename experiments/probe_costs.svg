@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title description">
+<title id="title">Lookup cost in separate chaining</title>
+<desc id="description">Measured and theoretical node comparisons for successful and unsuccessful searches at load factors 0.25 through 4.</desc>
+<rect width="960" height="540" fill="#ffffff"/>
+<g font-family="system-ui, sans-serif" fill="#152337">
+<text x="100" y="44" font-size="27" font-weight="bold">Lookup cost in separate chaining</text>
+<text x="100" y="70" font-size="15">4,093 fixed buckets · Seed 2026 · 2,000 unsuccessful lookups per load</text>
+<line x1="100" y1="410.00" x2="920" y2="410.00" stroke="#dce3ea"/>
+<text x="88" y="415.00" text-anchor="end" font-size="14">0</text>
+<line x1="100" y1="357.67" x2="920" y2="357.67" stroke="#dce3ea"/>
+<text x="88" y="362.67" text-anchor="end" font-size="14">1</text>
+<line x1="100" y1="305.33" x2="920" y2="305.33" stroke="#dce3ea"/>
+<text x="88" y="310.33" text-anchor="end" font-size="14">2</text>
+<line x1="100" y1="253.00" x2="920" y2="253.00" stroke="#dce3ea"/>
+<text x="88" y="258.00" text-anchor="end" font-size="14">3</text>
+<line x1="100" y1="200.67" x2="920" y2="200.67" stroke="#dce3ea"/>
+<text x="88" y="205.67" text-anchor="end" font-size="14">4</text>
+<line x1="100" y1="148.33" x2="920" y2="148.33" stroke="#dce3ea"/>
+<text x="88" y="153.33" text-anchor="end" font-size="14">5</text>
+<line x1="100" y1="96.00" x2="920" y2="96.00" stroke="#dce3ea"/>
+<text x="88" y="101.00" text-anchor="end" font-size="14">6</text>
+<line x1="100.00" y1="410" x2="100.00" y2="416" stroke="#536479"/>
+<text x="100.00" y="435" text-anchor="middle" font-size="14">0</text>
+<line x1="202.50" y1="410" x2="202.50" y2="416" stroke="#536479"/>
+<text x="202.50" y="435" text-anchor="middle" font-size="14">0.5</text>
+<line x1="305.00" y1="410" x2="305.00" y2="416" stroke="#536479"/>
+<text x="305.00" y="435" text-anchor="middle" font-size="14">1</text>
+<line x1="407.50" y1="410" x2="407.50" y2="416" stroke="#536479"/>
+<text x="407.50" y="435" text-anchor="middle" font-size="14">1.5</text>
+<line x1="510.00" y1="410" x2="510.00" y2="416" stroke="#536479"/>
+<text x="510.00" y="435" text-anchor="middle" font-size="14">2</text>
+<line x1="612.50" y1="410" x2="612.50" y2="416" stroke="#536479"/>
+<text x="612.50" y="435" text-anchor="middle" font-size="14">2.5</text>
+<line x1="715.00" y1="410" x2="715.00" y2="416" stroke="#536479"/>
+<text x="715.00" y="435" text-anchor="middle" font-size="14">3</text>
+<line x1="817.50" y1="410" x2="817.50" y2="416" stroke="#536479"/>
+<text x="817.50" y="435" text-anchor="middle" font-size="14">3.5</text>
+<line x1="920.00" y1="410" x2="920.00" y2="416" stroke="#536479"/>
+<text x="920.00" y="435" text-anchor="middle" font-size="14">4</text>
+<path d="M 100 96 V 410 H 920" fill="none" stroke="#536479"/>
+<text x="510" y="465" text-anchor="middle" font-size="16">Load factor (α)</text>
+<text x="31" y="253" transform="rotate(-90 31 253)" text-anchor="middle" font-size="16">Mean nodes compared</text>
+<polyline points="151.24,351.07 202.47,345.41 253.76,339.51 305.00,332.67 356.24,325.96 407.53,319.62 458.76,312.66 510.00,305.80 561.24,299.04 612.47,292.52 663.76,286.10 715.00,279.88 766.24,273.59 817.53,266.89 868.76,260.49 920.00,254.08" fill="none" stroke="#00599c" stroke-width="2"/>
+<circle cx="151.24" cy="351.07" r="3" fill="#00599c"/>
+<circle cx="202.47" cy="345.41" r="3" fill="#00599c"/>
+<circle cx="253.76" cy="339.51" r="3" fill="#00599c"/>
+<circle cx="305.00" cy="332.67" r="3" fill="#00599c"/>
+<circle cx="356.24" cy="325.96" r="3" fill="#00599c"/>
+<circle cx="407.53" cy="319.62" r="3" fill="#00599c"/>
+<circle cx="458.76" cy="312.66" r="3" fill="#00599c"/>
+<circle cx="510.00" cy="305.80" r="3" fill="#00599c"/>
+<circle cx="561.24" cy="299.04" r="3" fill="#00599c"/>
+<circle cx="612.47" cy="292.52" r="3" fill="#00599c"/>
+<circle cx="663.76" cy="286.10" r="3" fill="#00599c"/>
+<circle cx="715.00" cy="279.88" r="3" fill="#00599c"/>
+<circle cx="766.24" cy="273.59" r="3" fill="#00599c"/>
+<circle cx="817.53" cy="266.89" r="3" fill="#00599c"/>
+<circle cx="868.76" cy="260.49" r="3" fill="#00599c"/>
+<circle cx="920.00" cy="254.08" r="3" fill="#00599c"/>
+<path d="M 100 493 h 26" stroke="#00599c" stroke-width="2"/>
+<text x="134" y="498" font-size="14">Successful · measured</text>
+<polyline points="151.24,351.13 202.47,344.59 253.76,338.04 305.00,331.50 356.24,324.96 407.53,318.41 458.76,311.87 510.00,305.33 561.24,298.79 612.47,292.25 663.76,285.71 715.00,279.17 766.24,272.63 817.53,266.08 868.76,259.54 920.00,253.00" fill="none" stroke="#00599c" stroke-width="2" stroke-dasharray="7 5"/>
+<path d="M 480 493 h 26" stroke="#00599c" stroke-width="2" stroke-dasharray="7 5"/>
+<text x="514" y="498" font-size="14">Successful · theory</text>
+<polyline points="151.24,397.02 202.47,383.23 253.76,370.33 305.00,357.75 356.24,344.16 407.53,331.08 458.76,317.84 510.00,304.71 561.24,291.31 612.47,277.73 663.76,264.85 715.00,252.06 766.24,238.90 817.53,225.47 868.76,212.00 920.00,198.57" fill="none" stroke="#a04316" stroke-width="2"/>
+<circle cx="151.24" cy="397.02" r="3" fill="#a04316"/>
+<circle cx="202.47" cy="383.23" r="3" fill="#a04316"/>
+<circle cx="253.76" cy="370.33" r="3" fill="#a04316"/>
+<circle cx="305.00" cy="357.75" r="3" fill="#a04316"/>
+<circle cx="356.24" cy="344.16" r="3" fill="#a04316"/>
+<circle cx="407.53" cy="331.08" r="3" fill="#a04316"/>
+<circle cx="458.76" cy="317.84" r="3" fill="#a04316"/>
+<circle cx="510.00" cy="304.71" r="3" fill="#a04316"/>
+<circle cx="561.24" cy="291.31" r="3" fill="#a04316"/>
+<circle cx="612.47" cy="277.73" r="3" fill="#a04316"/>
+<circle cx="663.76" cy="264.85" r="3" fill="#a04316"/>
+<circle cx="715.00" cy="252.06" r="3" fill="#a04316"/>
+<circle cx="766.24" cy="238.90" r="3" fill="#a04316"/>
+<circle cx="817.53" cy="225.47" r="3" fill="#a04316"/>
+<circle cx="868.76" cy="212.00" r="3" fill="#a04316"/>
+<circle cx="920.00" cy="198.57" r="3" fill="#a04316"/>
+<path d="M 100 516 h 26" stroke="#a04316" stroke-width="2"/>
+<text x="134" y="521" font-size="14">Unsuccessful · measured</text>
+<polyline points="151.24,396.92 202.47,383.84 253.76,370.75 305.00,357.67 356.24,344.59 407.53,331.49 458.76,318.41 510.00,305.33 561.24,292.25 612.47,279.17 663.76,266.08 715.00,253.00 766.24,239.92 817.53,226.83 868.76,213.75 920.00,200.67" fill="none" stroke="#a04316" stroke-width="2" stroke-dasharray="7 5"/>
+<path d="M 480 516 h 26" stroke="#a04316" stroke-width="2" stroke-dasharray="7 5"/>
+<text x="514" y="521" font-size="14">Unsuccessful · theory</text>
+</g>
+</svg>
