@@ -1,9 +1,11 @@
 """Issue sequential base62 codes for HTTP and HTTPS URLs."""
 
+from collections.abc import Callable
 from urllib.parse import urlsplit
 
 from .base62 import encode
 from .hash_table import HashTable
+from .linear_probing import LinearProbingHashTable
 
 
 MAX_URL_LENGTH = 2048
@@ -28,9 +30,12 @@ def _validate_url(url: str) -> None:
 class Shortener:
     """Store both directions of a URL-to-code mapping in memory."""
 
-    def __init__(self):
-        self._url_to_code: HashTable[str] = HashTable()
-        self._code_to_url: HashTable[str] = HashTable()
+    def __init__(
+        self, table_factory: Callable[[], HashTable[str] | LinearProbingHashTable[str]] = HashTable
+    ):
+        """Create both mappings with the same table implementation and settings."""
+        self._url_to_code = table_factory()
+        self._code_to_url = table_factory()
         self._next_number = 0
 
     def shorten(self, url: str) -> str:
