@@ -47,3 +47,7 @@ class Shortener:
 
     def expand(self, code: str) -> str | None:
         return self._code_to_url.get(code)
+
+    def url_buckets(self) -> list[list[tuple[str, str]]]:
+        """Return the current URL-to-code buckets for the table page."""
+        return self._url_to_code.bucket_items()
